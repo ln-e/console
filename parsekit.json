@@ -2,10 +2,19 @@
 	"name": "ln-e/console",
 	"type": "library",
 	"description": "Console component",
+	"keywords": ["console", "terminal", "cli"],
+	"authors": [
+		{
+			"email": "ibodnar@artlebedev.ru",
+			"name": "Bodnar Igor"
+		}
+	],
 	"require": {
 		"parser": ">=3.4.3"
 	},
-	"classPath": {
-		"src": "Ln-e/Console"
+	"autoload": {
+		"namespace": {
+			"Ln-e/Console": "src"
+		}
 	}
 }
