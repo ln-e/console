@@ -1,0 +1,11 @@
+{
+	"name": "ln-e/console",
+	"type": "library",
+	"description": "Console component",
+	"require": {
+		"parser": ">=3.4.3"
+	},
+	"classPath": {
+		"src": "Ln-e/Console"
+	}
+}
