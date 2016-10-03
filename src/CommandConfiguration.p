@@ -24,7 +24,7 @@ locals
 
 
 #-----------------------------------------------------------------------------
-#:param argument type CommandArgument
+#:param argument type Ln-e/Console/Input/CommandArgument
 #-----------------------------------------------------------------------------
 @addArgument[argument]
     $self.arguments.[^self.arguments._count[]][$argument]
@@ -32,7 +32,7 @@ locals
 
 
 #-----------------------------------------------------------------------------
-#:param option type CommandOption
+#:param option type Ln-e/Console/Input/CommandOption
 #-----------------------------------------------------------------------------
 @addOption[option]
     $self.options.[^self.options._count[]][$options]

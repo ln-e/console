@@ -12,6 +12,9 @@ locals
 
 
 @auto[]
+    $self.OPTIONAL(1)
+    $self.REQUIRED(2)
+    $self.ARRAY(4)
 ###
 
 
@@ -19,13 +22,13 @@ locals
 #:constructor
 #
 #:param name type string
-#:param required type bool
+#:param mode type int
 #:param default type string
 #:param description type string
 #-----------------------------------------------------------------------------
 @create[name;mode;default;description]
     $self.name[$name]
-    $self.required(^required.int(0))
+    $self.mode(^mode.int(1))
     $self.default[$default]
     $self.description[$description]
 ###
@@ -37,5 +40,15 @@ locals
 #:result bool
 #-----------------------------------------------------------------------------
 @isRequired[]
-    $result($self.required)
+    $result($self.mode & ${Ln-e/Console/Input/CommandArgument:REQUIRED})
+###
+
+
+#-----------------------------------------------------------------------------
+#Check whatever argument is array
+#
+#:result bool
+#-----------------------------------------------------------------------------
+@isArray[]
+    $result($self.mode & ${Ln-e/Console/Input/CommandArgument:ARRAY})
 ###
