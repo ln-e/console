@@ -59,10 +59,9 @@ locals
 #
 #:param input type Ln-e/Console/Input/InputInterface
 #:param output type Ln-e/Console/Output/OutputInterface
-#
-#:result string
 #-----------------------------------------------------------------------------
 @run[input;output][result]
+    $result[]
     ^if(!def $input){
         $input[^Ln-e/Console/Input/ArgvInput::create[]]
     }
@@ -72,12 +71,31 @@ locals
     $commandName[^input.getCommandName[]]
     $self.options[^hash::create[$input.options]]
 
-    $result[^#0A]
+    ^self.preExecute[$input;$output]
+
     ^if(!def $commandName || !^self.hasCommand[$commandName]){
-        $result[$result^showHelp[]]
+        ^output.writeln[^showHelp[]]
     }{
-        $result[$result^self.commands.$commandName.run[$input;$output]]
+        ^self.commands.$commandName.run[$input;$output]
     }
+
+    ^self.postExecute[$input;$output]
+###
+
+
+#-----------------------------------------------------------------------------
+#:param input type Ln-e/Console/Input/InputInterface
+#:param output type Ln-e/Console/Output/OutputInterface
+#-----------------------------------------------------------------------------
+@preExecute[input;output]
+###
+
+
+#-----------------------------------------------------------------------------
+#:param input type Ln-e/Console/Input/InputInterface
+#:param output type Ln-e/Console/Output/OutputInterface
+#-----------------------------------------------------------------------------
+@postExecute[input;output]
 ###
 
 

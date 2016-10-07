@@ -14,7 +14,7 @@ Ln-e/Console/Output/AbstractOutput
 locals
 
 @auto[]
-    $Ln-e/Console/Output/ConsoleOutput:cursorUp[^#1b^[1F]
+    $self.cursorUp[^#1b^[1F]
 ###
 
 
@@ -27,6 +27,6 @@ locals
 @doWrite[message;newline]
     $console:line[$message]
     ^if(^newline.int(0)){
-        $console:line[$Ln-e/Console/Output/ConsoleOutput:cursorUp]
+        $console:line[${Ln-e/Console/Output/ConsoleOutput:cursorUp}]
     }
 ###

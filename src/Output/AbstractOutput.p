@@ -38,6 +38,7 @@ locals
     }
 
     ^messages.foreach[id;message]{
+
         ^self.doWrite[$message;$newline]
     }
 ###
@@ -49,7 +50,7 @@ locals
 #:param messages type string|array The message as an array of lines of a single string
 #-----------------------------------------------------------------------------
 @writeln[messages]
-    $self.write[$messages](true)
+    ^self.write[$messages](true)
 ###
 
 
