@@ -20,7 +20,7 @@ locals
 #-----------------------------------------------------------------------------
 #:constructor
 #
-#:param configuration type CommandConfiguration
+#:param configuration type Ln-e/Console/CommandConfiguration
 #-----------------------------------------------------------------------------
 @create[configuration]
     $self.configuration[]
@@ -40,7 +40,7 @@ locals
 #-----------------------------------------------------------------------------
 #Set configuration of command for parsing params
 #
-#:param configuration type CommandConfiguration
+#:param configuration type Ln-e/Console/CommandConfiguration
 #-----------------------------------------------------------------------------
 @bindConfiguration[configuration]
     $self.configuration[$configuration]
@@ -64,7 +64,17 @@ locals
 #:result string
 #-----------------------------------------------------------------------------
 @getOption[name][result]
-    $result[$self.arguments.$name]
+    $result[$self.options.$name]
+###
+
+
+#-----------------------------------------------------------------------------
+#:param name type string
+#
+#:result bool
+#-----------------------------------------------------------------------------
+@hasOption[name][result]
+    $result(^self.options.contains[$name])
 ###
 
 
@@ -100,7 +110,7 @@ locals
     ^self.configuration.options.foreach[key;option]{
         ^if(^params.options.contains[$option.name]){
             $self.options.[$option.name][$params.options.[$option.name]]
-        }(^params.options.contains[$option.shortcut]){
+        }(def $option.shortcut && ^params.options.contains[$option.shortcut]){
             $self.options.[$option.name][$params.options.[$option.shortcut]]
         }
     }

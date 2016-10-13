@@ -35,5 +35,5 @@ locals
 #:param option type Ln-e/Console/Input/CommandOption
 #-----------------------------------------------------------------------------
 @addOption[option]
-    $self.options.[^self.options._count[]][$options]
+    $self.options.[^self.options._count[]][$option]
 ###
