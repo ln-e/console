@@ -1,0 +1,28 @@
+{
+  "name": "ln-e/console",
+  "type": "library",
+  "description": "Console component",
+  "keywords": ["console", "terminal", "cli"],
+  "authors": [
+    {
+      "email": "ibodnar@artlebedev.ru",
+      "name": "Bodnar Igor"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ln-e\\Console\\": "src/"
+    }
+  },
+  "require-dev": {
+    "parser/autoload": "^1.0"
+  },
+  "repositories": [
+    { "type": "composer", "url": "https://pkg.parser.ru" }
+  ],
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1-dev"
+    }
+  }
+}
